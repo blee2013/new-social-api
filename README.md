@@ -12,7 +12,7 @@ This is the backend for a social network using MongoDB, Mongoose, Node.js, and E
  
  Github: (https://github.com/blee2013/Social-Network-API)
 
- Youtube Walkthrough Video: 
+ Youtube Walkthrough Video: https://youtu.be/ynQyQUlw8iI
 
 
 ### Technology Used
