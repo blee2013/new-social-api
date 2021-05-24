@@ -11,7 +11,6 @@ router.use((req, res) => {
 module.exports = router;
 
 // from homework assignment 
-
 // const router = require('express').Router();
 // const apiRoutes = require('./api');
 // const htmlRoutes = require('./html/html-routes');
