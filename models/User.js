@@ -1,3 +1,5 @@
+// from homework assignment and worked on with tutor Vivian
+
 const { Schema, model, Types } = require('mongoose');
 
 const UserSchema = new Schema({

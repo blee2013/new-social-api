@@ -1,5 +1,7 @@
 const router = require('express').Router();
 
+// from homework assignment
+
 const {
     getAllUsers,
     getUserById,
@@ -10,12 +12,14 @@ const {
     deleteFriend
 } = require('../../controllers/user-controller');
 
+// from homework assignment and worked on with tutor Vivian 
 
 // /api/users/:userId/friends/:friendIds
 router.route('/:userId/friends/:friendId')
     .post(addFriend)
     .delete(deleteFriend);
 
+// from homework assignment and worked on with tutor Vivian 
 
 // set up GET all and POST at /api/users
 router.route('/')
@@ -23,6 +27,7 @@ router.route('/')
     .get(getAllUsers)
     // POST a new user:
     .post(createUser)
+// from homework assignment and worked on with tutor Vivian 
 
 // set up GET one, PUT and DELETE at /api/users/<userId>
 router.route('/:userId')

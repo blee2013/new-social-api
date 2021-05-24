@@ -1,3 +1,6 @@
+// from homework assignment and worked on with tutor Vivian
+
+
 const { Schema, model, Types } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
@@ -43,10 +46,6 @@ const ThoughtSchema = new Schema({
         type: String,
         required: 'A user name is required'
     },
-    // userId: {
-    //     type: String,
-    //     required: 'A userId is required'
-    // },
     createdAt: {
         type: Date,
         default: Date.now,

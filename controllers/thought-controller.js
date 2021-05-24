@@ -1,4 +1,6 @@
+// const { Comment, Pizza } = require('../models'); example from online assignment
 const { User, Thought } = require('../models');
+
 
 const thoughtController = {
 
@@ -25,6 +27,29 @@ const thoughtController = {
             })
             .catch(err => res.json(err));
     },
+// example from code online assignment 
+// const commentController = {
+//   // add comment to pizza
+//   addComment({ params, body }, res) {
+//     console.log(params);
+//     Comment.create(body)
+//       .then(({ _id }) => {
+//         return Pizza.findOneAndUpdate(
+//           { _id: params.pizzaId },
+//           { $push: { comments: _id } },
+//           { new: true }
+//         );
+//       })
+//       .then(dbPizzaData => {
+//         console.log(dbPizzaData);
+//         if (!dbPizzaData) {
+//           res.status(404).json({ message: 'No pizza found with this id!' });
+//           return;
+//         }
+//         res.json(dbPizzaData);
+//       })
+//       .catch(err => res.json(err));
+//   },
 
     //get all thoughts
     getAllThoughts(req, res) {
@@ -41,6 +66,24 @@ const thoughtController = {
                 res.json(400).json(err);
             })
     },
+
+    // from online assignment 
+    // const pizzaController = {
+    //     // get all pizzas
+    //     getAllPizza(req, res) {
+    //         Pizza.find({})
+    //             .populate({
+    //                 path: 'comments',
+    //                 select: '-__v'
+    //             })
+    //             .select('-__v')
+    //             .sort({ _id: -1 })
+    //             .then(dbPizzaData => res.json(dbPizzaData))
+    //             .catch(err => {
+    //                 console.log(err);
+    //                 res.sendStatus(400);
+    //             });
+    //     },
 
     //get thought by id
     getThoughtById({ params }, res) {
@@ -62,6 +105,23 @@ const thoughtController = {
                 res.status(400).json(err);
             })
     },
+
+    //from online assignment 
+
+  // // get one pizza by id
+  // getPizzaById({ params }, res) {
+  //   Pizza.findOne({ _id: params.id })
+  //     .populate({
+  //       path: 'comments',
+  //       select: '-__v'
+  //     })
+  //     .select('-__v')
+  //     .then(dbPizzaData => res.json(dbPizzaData))
+  //     .catch(err => {
+  //       console.log(err);
+  //       res.sendStatus(400);
+  //     });
+  // },
 
 
     //add reaction
@@ -86,6 +146,26 @@ const thoughtController = {
             .catch(err => res.json(err));
     },
 
+
+
+//   // add reply to comment from online assignment code 
+//   addReply({ params, body }, res) {
+//     Comment.findOneAndUpdate(
+//       { _id: params.commentId },
+//       { $push: { replies: body } },
+//       { new: true, runValidators: true }
+//     )
+//       .then(dbPizzaData => {
+//         if (!dbPizzaData) {
+//           res.status(404).json({ message: 'No pizza found with this id!' });
+//           return;
+//         }
+//         res.json(dbPizzaData);
+//       })
+//       .catch(err => res.json(err));
+//   },
+
+
     //delete reaction
     deleteReaction({ params }, res) {
         console.log({ params })
@@ -97,6 +177,18 @@ const thoughtController = {
             .then(dbThoughtData => res.json(dbThoughtData))
             .catch(err => res.json(err));
     },
+
+      // remove reply from online assignment 
+//   removeReply({ params }, res) {
+//     Comment.findOneAndUpdate(
+//       { _id: params.commentId },
+//       { $pull: { replies: { replyId: params.replyId } } },
+//       { new: true }
+//     )
+//       .then(dbPizzaData => res.json(dbPizzaData))
+//       .catch(err => res.json(err));
+//   }
+// };
 
     //update reaction
     updateThought({ params, body }, res) {
@@ -110,6 +202,20 @@ const thoughtController = {
             })
             .catch(err => res.json(err));
     },
+     // // update pizza by id from online assignmnent 
+  // updatePizza({ params, body }, res) {
+  //   Pizza.findOneAndUpdate({ _id: params.id }, body, { new: true, runValidators: true })
+  //     .then(dbPizzaData => {
+  //       if (!dbPizzaData) {
+  //         res.status(404).json({ message: 'No pizza found with this id!' });
+  //         return;
+  //       }
+  //       res.json(dbPizzaData);
+  //     })
+  //     .catch(err => res.json(err));
+  // },
+
+
     // delete thought
     deleteThought({ body, params }, res) {
         console.log({ body })
@@ -135,6 +241,45 @@ const thoughtController = {
             .catch(err => res.status(400).json(err));
     }
 
+//   // remove comment from online assignment 
+//   removeComment({ params }, res) {
+//     Comment.findOneAndDelete({ _id: params.commentId })
+//       .then(deletedComment => {
+//         if (!deletedComment) {
+//           return res.status(404).json({ message: 'No comment with this id!' });
+//         }
+//         return Pizza.findOneAndUpdate(
+//           { _id: params.pizzaId },
+//           { $pull: { comments: params.commentId } },
+//           { new: true }
+//         );
+//       })
+//       .then(dbPizzaData => {
+//         if (!dbPizzaData) {
+//           res.status(404).json({ message: 'No pizza found with this id!' });
+//           return;
+//         }
+//         res.json(dbPizzaData);
+//       })
+//       .catch(err => res.json(err));
+//   },
+
 };
 
 module.exports = thoughtController;
+
+
+
+//   // remove reply
+//   removeReply({ params }, res) {
+//     Comment.findOneAndUpdate(
+//       { _id: params.commentId },
+//       { $pull: { replies: { replyId: params.replyId } } },
+//       { new: true }
+//     )
+//       .then(dbPizzaData => res.json(dbPizzaData))
+//       .catch(err => res.json(err));
+//   }
+// };
+
+// module.exports = commentController;

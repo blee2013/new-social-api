@@ -1,3 +1,5 @@
+// from homework assignment and worked on with tutor Vivian
+
 const addDateSuffix = date => {
     let dateStr = date.toString();
 
