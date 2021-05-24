@@ -8,15 +8,10 @@
         "start": "node server.js"
     },
     "repository": {
-        "type": "git",
-        "url": "git+https://github.com/mwpx777/Social-Network-API.git"
-    },
+        "type": "git"    },
     "author": "",
     "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/mwpx777/Social-Network-API/issues"
-    },
-    "homepage": "https://github.com/mwpx777/Social-Network-API#readme",
+
     "dependencies": {
         "express": "^4.17.1",
         "mongoose": "^5.12.10"
